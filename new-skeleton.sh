@@ -12,12 +12,14 @@ duplicateSkeleton ()
 {
     echo Copying skeleton to path: $1
     cp ./skeleton/* $1
+    sed -i '' "s/{{NAMESPACE}}/$namespace/" $1/Styles.elm
 }
 
 duplicateElmPackage ()
 {
     echo Copying elm-package.json to path: $1
     cp elm-package.json $1
+    sed -i '' 's/skeleton/src/' $1/elm-package.json
 }
 
 createNewProject ()
@@ -38,10 +40,22 @@ addFeature ()
 }
 
 echo Creating a new elm skeleton
+echo "* * *"
 echo Path: $path
 echo Namespace: "$namespace"
+echo
+echo Are the path and namespace correct?
+select opt in "Yes" "No"; do
+   if [ "$opt" = "Yes" ]; then
+    break
+   else
+    echo Operation cancelled.
+    exit
+   fi
+done
 
-echo "Include a new elm-package.json?"
+
+echo Include a new elm-package.json?
 select opt in "Yes" "No"; do
    if [ "$opt" = "Yes" ]; then
     createNewProject $path
