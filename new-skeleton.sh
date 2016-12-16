@@ -1,5 +1,8 @@
 #!/bin/bash
 
+current_location="`dirname \"$0\"`"              # relative
+current_location="`( cd \"$current_location\" && pwd )`"  # absolutized and normalized
+
 path="$1"
 namespace=${path////-}
 
@@ -11,14 +14,14 @@ fi
 duplicateSkeleton ()
 {
     echo Copying skeleton to path: $1
-    cp ./skeleton/* $1
+    cp $current_location/skeleton/* $1
     sed -i '' "s/{{NAMESPACE}}/$namespace/" $1/Styles.elm
 }
 
 duplicateElmPackage ()
 {
     echo Copying elm-package.json to path: $1
-    cp elm-package.json $1
+    cp $current_location/elm-package.json $1
     sed -i '' 's/skeleton/src/' $1/elm-package.json
 }
 
@@ -43,7 +46,7 @@ echo Creating a new elm skeleton
 echo "* * *"
 echo Path: $path
 echo Namespace: "$namespace"
-echo
+
 echo Are the path and namespace correct?
 select opt in "Yes" "No"; do
    if [ "$opt" = "Yes" ]; then
@@ -53,7 +56,6 @@ select opt in "Yes" "No"; do
     exit
    fi
 done
-
 
 echo Include a new elm-package.json?
 select opt in "Yes" "No"; do
