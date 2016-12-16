@@ -10,27 +10,30 @@ fi
 
 duplicateSkeleton ()
 {
+    echo Copying skeleton to path: $1
     cp ./skeleton/* $1
 }
 
 duplicateElmPackage ()
 {
+    echo Copying elm-package.json to path: $1
     cp elm-package.json $1
 }
 
 createNewProject ()
 {
+    echo Creating a new project skeleton
     srcPath=$1/src
     if [ ! -d "$srcPath" ]; then
         mkdir $srcPath
     fi
     duplicateSkeleton $srcPath
     duplicateElmPackage $1
-
 }
 
 addFeature ()
 {
+    echo Adding a new feature skeleton
     duplicateSkeleton $1
 }
 
