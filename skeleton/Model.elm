@@ -1,6 +1,6 @@
 module Model exposing (..)
 
-import Flags as Flags exposing (Flags)
+import Flags exposing (Flags)
 
 
 type alias Model =

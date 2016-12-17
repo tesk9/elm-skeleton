@@ -3,7 +3,7 @@ module Main exposing (main)
 import Html
 import Json.Decode exposing (Value, decodeString)
 import Flags exposing (decoder)
-import Model as Model exposing (Model)
+import Model exposing (Model)
 import Update exposing (update)
 import View exposing (view)
 

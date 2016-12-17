@@ -1,6 +1,6 @@
 module Update exposing (update, Msg(..))
 
-import Model as Model
+import Model
 
 
 type Msg
