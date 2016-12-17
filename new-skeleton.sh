@@ -11,11 +11,28 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 path="$1"
 namespace=${path////-}
+module_prefix=${path////.}
 
 if [ ! -d "$path" ]; then
     echo Path $path not found. Operation cancelled.
     exit
 fi
+
+prefixModuleNames ()
+{
+  for elmfile in "$1/*.elm"
+  do
+    sed -i '' "s/module /module $module_prefix./g" $elmfile
+    # TODO: Clean up these replacements.
+    sed -i '' "s/import Flags/import $module_prefix.Flags as Flags/g" $elmfile
+    sed -i '' "s/import Model/import $module_prefix.Model as Model/g" $elmfile
+    sed -i '' "s/import Styles/import $module_prefix.Styles as Styles/g" $elmfile
+    sed -i '' "s/import Update/import $module_prefix.Update as Update/g" $elmfile
+    sed -i '' "s/import View/import $module_prefix.View as View/g" $elmfile
+
+  done
+}
+
 
 duplicateSkeleton ()
 {
@@ -46,6 +63,7 @@ addFeature ()
 {
     echo Adding a new feature skeleton
     duplicateSkeleton $1
+    prefixModuleNames $1
 }
 
 echo Creating a new elm skeleton
