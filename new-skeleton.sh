@@ -23,19 +23,13 @@ prefixModuleNames ()
   elmfiles=($"$1/*.elm")
   file_matchers=( Flags Model Styles Update View )
 
-  matchers=()
-  for matcher in ${file_matchers[@]}
-  do
-    matchers=("${matchers[@]}" "s/import $matcher/import $module_prefix.$matcher as $matcher/g")
-  done
-
   for elmfile in $elmfiles
   do
     sed -i '' "s/module /module $module_prefix./g" $elmfile
 
-    for matcher in "${matchers[@]}"
+    for matcher in ${file_matchers[@]}
     do
-      sed -i '' "$matcher" $elmfile
+      sed -i '' "s/import $matcher/import $module_prefix.$matcher as $matcher/g" $elmfile
     done
   done
 }
