@@ -1,7 +1,13 @@
 #!/bin/bash
 
-current_location="`dirname \"$0\"`"              # relative
-current_location="`( cd \"$current_location\" && pwd )`"  # absolutized and normalized
+# current directory stuff from http://stackoverflow.com/a/246128
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 path="$1"
 namespace=${path////-}
@@ -14,14 +20,14 @@ fi
 duplicateSkeleton ()
 {
     echo Copying skeleton to path: $1
-    cp $current_location/skeleton/* $1
+    cp $DIR/skeleton/* $1
     sed -i '' "s/{{NAMESPACE}}/$namespace/" $1/Styles.elm
 }
 
 duplicateElmPackage ()
 {
     echo Copying elm-package.json to path: $1
-    cp $current_location/elm-package.json $1
+    cp $DIR/elm-package.json $1
     sed -i '' 's/skeleton/src/' $1/elm-package.json
 }
 
@@ -43,7 +49,6 @@ addFeature ()
 }
 
 echo Creating a new elm skeleton
-echo "* * *"
 echo Path: $path
 echo Namespace: "$namespace"
 
