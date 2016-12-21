@@ -4,6 +4,7 @@ import Html exposing (..)
 import Html.CssHelpers
 import Model exposing (Model)
 import Styles exposing (..)
+import Update
 
 
 view : Model -> Html b
