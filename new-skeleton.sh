@@ -13,11 +13,6 @@ path="$1"
 namespace=${path////-}
 module_prefix=${path////.}
 
-if [ ! -d "$path" ]; then
-    echo Path $path not found. Operation cancelled.
-    exit
-fi
-
 prefixModuleNames ()
 {
   elmfiles=($"$1/*.elm")
@@ -53,16 +48,24 @@ createNewProject ()
 {
     echo Creating a new project skeleton
     srcPath=$1/src
-    if [ ! -d "$srcPath" ]; then
-        mkdir $srcPath
-    fi
+    addFolder $srcPath
     duplicateSkeleton $srcPath
     duplicateElmPackage $1
+}
+
+addFolder ()
+{
+  if [ ! -d "$1" ]; then
+      echo $1
+      mkdir -p $1
+      echo
+  fi
 }
 
 addFeature ()
 {
     echo Adding a new feature skeleton
+    addFolder $1
     duplicateSkeleton $1
     prefixModuleNames $1
 }

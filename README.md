@@ -19,7 +19,6 @@ $ npm install -g elm-skeleton
 #### For a new project
 
 ```
-$ mkdir BrandNewProject
 $ elm-skeleton BrandNewProject
 ```
 
@@ -48,7 +47,6 @@ assets
 
 ```
 $ cd assets/elm
-$ mkdir Miscellany/Doohickeys/Whatsit
 $ elm-skeleton Miscellany/Doohickeys/Whatsit
 ```
 
