@@ -33,15 +33,15 @@ prefixModuleNames ()
 duplicateSkeleton ()
 {
     echo Copying skeleton to path: $1
-    cp $DIR/skeleton/* $1
+    cp $DIR/skeleton/*.elm $1
     sed -i '' "s/{{NAMESPACE}}/$namespace/" $1/Styles.elm
 }
 
 duplicateElmPackage ()
 {
     echo Copying elm-package.json to path: $1
-    cp $DIR/elm-package.json $1
-    sed -i '' 's/skeleton/src/' $1/elm-package.json
+    cp $DIR/skeleton/elm-package.json $1
+    sed -i '' 's/"."/"src"/' $1/elm-package.json
 }
 
 createNewProject ()
