@@ -1,13 +1,14 @@
 module View exposing (view)
 
 import Html exposing (..)
+import Html.Attributes
 import Html.CssHelpers
 import Model exposing (Model)
 import Styles exposing (..)
-import Update
+import Update exposing (Msg(..))
 
 
-view : Model -> Html b
+view : Model -> Html Msg
 view model =
     div
         [ class [ Container ] ]
