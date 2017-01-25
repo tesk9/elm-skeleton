@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/tesk9/elm-skeleton/issues"
   },
-  "homepage": "https://github.com/tesk9/elm-skeleton#readme"
+  "homepage": "https://github.com/tesk9/elm-skeleton#readme",
+  "preferGlobal": true
 }

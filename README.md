@@ -11,6 +11,7 @@ It also assumes that the user will be using [rtfeldman's elm-css](http://package
 ### Install:
 
 ```
+$ npm install -g elm-move
 $ npm install -g elm-skeleton
 ```
 

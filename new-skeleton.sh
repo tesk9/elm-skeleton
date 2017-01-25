@@ -11,37 +11,19 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 path="$1"
 namespace=${path////-}
-module_prefix=${path////.}
-
-prefixModuleNames ()
-{
-  elmfiles=($"$1/*.elm")
-  file_matchers=( Flags Model Styles Update View )
-
-  for elmfile in $elmfiles
-  do
-    sed -i '' "s/module /module $module_prefix./g" $elmfile
-
-    for matcher in ${file_matchers[@]}
-    do
-      sed -i '' "s/import $matcher/import $module_prefix.$matcher as $matcher/g" $elmfile
-    done
-  done
-}
-
 
 duplicateSkeleton ()
 {
-    echo Copying skeleton to path: $1
-    cp $DIR/skeleton/*.elm $1
-    sed -i '' "s/{{NAMESPACE}}/$namespace/" $1/Styles.elm
+    mkdir SkeletonTemp
+    cp $DIR/skeleton/*.elm SkeletonTemp
+    sed -i '' "s/{{NAMESPACE}}/$namespace/" SkeletonTemp/Styles.elm
 }
 
 duplicateElmPackage ()
 {
-    echo Copying elm-package.json to path: $1
-    cp $DIR/skeleton/elm-package.json $1
-    sed -i '' 's/"."/"src"/' $1/elm-package.json
+    mkdir SkeletonTemp
+    cp $DIR/skeleton/elm-package.json SkeletonTemp
+    sed -i '' 's/"."/"src"/' SkeletonTemp/elm-package.json
 }
 
 createNewProject ()
@@ -49,8 +31,14 @@ createNewProject ()
     echo Creating a new project skeleton
     srcPath=$1/src
     addFolder $srcPath
-    duplicateSkeleton $srcPath
-    duplicateElmPackage $1
+
+    duplicateSkeleton
+    elm-move SkeletonTemp $srcPath
+    rm -rf SkeletonTemp
+
+    duplicateElmPackage
+    elm-move SkeletonTemp $1
+    rm -rf SkeletonTemp
 }
 
 addFolder ()
@@ -66,8 +54,9 @@ addFeature ()
 {
     echo Adding a new feature skeleton
     addFolder $1
-    duplicateSkeleton $1
-    prefixModuleNames $1
+    duplicateSkeleton
+    elm-move SkeletonTemp $1
+    rm -rf SkeletonTemp
 }
 
 echo Creating a new elm skeleton
