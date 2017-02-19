@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/tesk9/elm-skeleton/issues"
   },
+  "dependencies": {
+    "elm-move": "0.0.4"
+  },
   "homepage": "https://github.com/tesk9/elm-skeleton#readme",
   "preferGlobal": true
 }
