@@ -1,5 +1,9 @@
 module View exposing (view)
 
+{-|
+@docs view
+-}
+
 import Html exposing (..)
 import Html.Attributes
 import Html.CssHelpers
@@ -8,6 +12,8 @@ import Styles exposing (..)
 import Update exposing (Msg(..))
 
 
+{-| view
+-}
 view : Model -> Html Msg
 view model =
     div

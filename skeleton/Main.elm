@@ -1,5 +1,9 @@
 module Main exposing (main)
 
+{-|
+@docs main
+-}
+
 import Html
 import Json.Decode exposing (Value, decodeString)
 import Flags exposing (decoder)
@@ -8,6 +12,8 @@ import Update exposing (update)
 import View exposing (view)
 
 
+{-| main
+-}
 main : Program String Model Update.Msg
 main =
     Html.programWithFlags
