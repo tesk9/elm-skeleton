@@ -24,7 +24,7 @@ type Classes
 
 snippets : List Snippet
 snippets =
-    [ (.) Container
+    [ Css.class Container
         []
     ]
 
