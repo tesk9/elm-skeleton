@@ -1,5 +1,7 @@
 ## Elm Skeleton
 
+![](https://travis-ci.org/tesk9/elm-skeleton.svg?branch=master)
+
 Set up a new Elm project or add a feature to an existing project.
 
 Creates files for Main, Flags, Model, Styles, Update, and View at the location of your choice.
