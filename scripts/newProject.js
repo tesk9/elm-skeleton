@@ -4,11 +4,12 @@ var moveProject = require("elm-move/scripts/project");
 var helpers = require("./helpers");
 
 function createNewProject(destination) {
-  console.log("Creating a new project skeleton.");
+  console.log("Creating a new project skeleton at", destination);
 
   var srcDestination = path.join(destination, "src");
   var tempDirectory = path.join(__dirname, "../SkeletonTemp");
   var tempSrcDirectory = path.join(tempDirectory, "src");
+
   helpers.addFolder(tempDirectory);
   helpers.addFolder(tempSrcDirectory);
   helpers.addFolder(destination);

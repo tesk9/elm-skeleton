@@ -14,10 +14,10 @@ function addFolder(path) {
   });
 }
 
-function duplicateSkeleton(tempSrcDirectory, cb) {
+function duplicateSkeleton(tempDirectory, cb) {
   var skeleton = path.join(__dirname, "../skeleton");
 
-  fs.copy(skeleton, tempSrcDirectory, function(err) {
+  fs.copy(skeleton, tempDirectory, function(err) {
     if (err) { throw err; }
     console.log("Skeleton copied to temporary directory for processing.");
 
