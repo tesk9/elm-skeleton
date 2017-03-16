@@ -15,9 +15,8 @@ function createNewFeature(destination) {
     var stylesPath = path.join(tempDirectory, "Styles.elm")
     helpers.fsReplace(stylesPath, helpers.replaceStyleNamespace(destination), function() {
       moveProject(tempDirectory, destination);
-      // TODO: unlink the temp directory
     });
   });
 }
 
-createNewFeature(process.argv[2]);
+module.exports = createNewFeature;

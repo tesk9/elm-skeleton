@@ -22,4 +22,4 @@ function createNewProject(destination) {
   });
 }
 
-createNewProject(process.argv[2]);
+module.exports = createNewProject;
