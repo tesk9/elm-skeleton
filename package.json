@@ -17,7 +17,7 @@
     "url": "https://github.com/tesk9/elm-skeleton/issues"
   },
   "dependencies": {
-    "elm-move": "0.0.6",
+    "elm-move": "0.0.8",
     "fs-extra": "^2.0.0"
   },
   "homepage": "https://github.com/tesk9/elm-skeleton#readme",
