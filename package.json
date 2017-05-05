@@ -1,9 +1,11 @@
 {
   "name": "elm-skeleton",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Set up a new Elm project or add a feature to an existing project",
   "main": "index.js",
-  "bin": "./new-skeleton.sh",
+  "bin": {
+    "elm-skeleton": "new-skeleton.js"
+  },
   "scripts": {
     "test": "mocha"
   },
@@ -17,7 +19,8 @@
     "url": "https://github.com/tesk9/elm-skeleton/issues"
   },
   "dependencies": {
-    "elm-move": "0.0.6"
+    "elm-move": "0.0.8",
+    "fs-extra": "^2.0.0"
   },
   "homepage": "https://github.com/tesk9/elm-skeleton#readme",
   "preferGlobal": true,
