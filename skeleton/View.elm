@@ -5,6 +5,7 @@ module View exposing (view)
 -}
 
 import Html exposing (..)
+import Html.A11y exposing (..)
 import Html.Attributes
 import Html.CssHelpers
 import Model exposing (Model)
