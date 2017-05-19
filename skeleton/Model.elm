@@ -1,20 +1,11 @@
-module Model exposing (Model, init)
+module Model exposing (Model)
 
 {-|
-@docs Model, init
+@docs Model
 -}
-
-import Flags exposing (Flags)
 
 
 {-| Model
 -}
 type alias Model =
-    {}
-
-
-{-| init
--}
-init : Flags -> Model
-init flags =
     {}
