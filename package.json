@@ -1,6 +1,6 @@
 {
   "name": "elm-skeleton",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "Set up a new Elm project or add a feature to an existing project",
   "main": "index.js",
   "bin": {
