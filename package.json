@@ -25,6 +25,7 @@
   "homepage": "https://github.com/tesk9/elm-skeleton#readme",
   "preferGlobal": true,
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "mock-fs": "^4.4.1"
   }
 }
