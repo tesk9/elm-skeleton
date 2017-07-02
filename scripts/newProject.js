@@ -17,8 +17,9 @@ function createNewProject(destination) {
 
   helpers.duplicateSkeleton(tempSrcDirectory, function() {
     var stylesPath = path.join(tempSrcDirectory, "Styles.elm")
-    var move = function() { moveProject(tempSrcDirectory, srcDestination); };
-    helpers.fsReplace(stylesPath, helpers.replaceStyleNamespace(destination), move);
+    helpers.fsReplace(stylesPath, helpers.replaceStyleNamespace(destination), function() {
+      moveProject(tempSrcDirectory, srcDestination);
+    });
   });
 }
 
