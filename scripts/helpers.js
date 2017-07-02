@@ -7,7 +7,7 @@ function addFolder(path) {
     return;
   }
 
-  fs.mkdir(path, function(err) {
+  fs.mkdirp(path, function(err) {
     if (err) { throw err; }
 
     console.log("Adding folder", path);
