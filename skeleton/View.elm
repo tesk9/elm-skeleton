@@ -13,7 +13,7 @@ import Styles exposing (..)
 import Update exposing (Msg(..))
 
 
-{-| view
+{-|
 -}
 view : Model -> Html Msg
 view model =

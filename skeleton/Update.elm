@@ -7,13 +7,13 @@ module Update exposing (update, Msg(..))
 import Model
 
 
-{-| Msg
+{-|
 -}
 type Msg
     = NoOp
 
 
-{-| update
+{-|
 -}
 update : Msg -> Model.Model -> ( Model.Model, Cmd c )
 update msg model =

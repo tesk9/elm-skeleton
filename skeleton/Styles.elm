@@ -16,7 +16,7 @@ import Css.Namespace exposing (namespace)
 import Html.CssHelpers exposing (Namespace, withNamespace)
 
 
-{-| Classes
+{-|
 -}
 type Classes
     = Container
@@ -38,7 +38,7 @@ currentNamespace =
     withNamespace "{{NAMESPACE}}-"
 
 
-{-| css
+{-|
 The produced stylesheet.
 -}
 css : String

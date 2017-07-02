@@ -5,7 +5,7 @@ module Model exposing (Model)
 -}
 
 
-{-| Model
+{-|
 -}
 type alias Model =
     {}
