@@ -15,7 +15,7 @@ type Msg
 
 {-|
 -}
-update : Msg -> Model.Model -> ( Model.Model, Cmd c )
+update : Msg -> Model.Model -> ( Model.Model, Cmd Msg )
 update msg model =
     case msg of
         NoOp ->

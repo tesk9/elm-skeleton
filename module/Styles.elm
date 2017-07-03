@@ -1,14 +1,14 @@
 module Styles
     exposing
         ( Classes(..)
-        , css
+        , styles
         , class
         , id
         , classList
         )
 
 {-|
-@docs Classes, css, class, id, classList
+@docs Classes, styles, class, id, classList
 -}
 
 import Css exposing (..)
@@ -38,11 +38,10 @@ currentNamespace =
     withNamespace "{{NAMESPACE}}-"
 
 
-{-|
-The produced stylesheet.
+{-| The produced stylesheet.
 -}
-css : String
-css =
+styles : String
+styles =
     snippets
         |> namespace currentNamespace.name
         |> stylesheet

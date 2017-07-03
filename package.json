@@ -1,6 +1,6 @@
 {
   "name": "elm-skeleton",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Set up a new Elm project or add a feature to an existing project",
   "main": "index.js",
   "bin": {
@@ -25,6 +25,7 @@
   "homepage": "https://github.com/tesk9/elm-skeleton#readme",
   "preferGlobal": true,
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "mock-fs": "^4.4.1"
   }
 }

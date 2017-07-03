@@ -19,6 +19,6 @@ view : Model -> Html Msg
 view model =
     div
         [ class [ Container ] ]
-        [ Html.CssHelpers.style css
+        [ Html.CssHelpers.style styles
         , text "Hello, world!"
         ]

@@ -7,21 +7,10 @@ function addFolder(path) {
     return;
   }
 
-  fs.mkdir(path, function(err) {
+  fs.mkdirp(path, function(err) {
     if (err) { throw err; }
 
     console.log("Adding folder", path);
-  });
-}
-
-function duplicateSkeleton(tempDirectory, cb) {
-  var skeleton = path.join(__dirname, "../skeleton");
-
-  fs.copy(skeleton, tempDirectory, function(err) {
-    if (err) { throw err; }
-    console.log("Skeleton copied to temporary directory for processing.");
-
-    cb()
   });
 }
 
@@ -44,7 +33,6 @@ function replaceStyleNamespace(destination) {
 
 module.exports = {
   addFolder: addFolder,
-  duplicateSkeleton: duplicateSkeleton,
   fsReplace: fsReplace,
   replaceStyleNamespace: replaceStyleNamespace,
 }

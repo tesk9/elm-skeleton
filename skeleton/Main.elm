@@ -13,7 +13,7 @@ import Update exposing (update)
 import View exposing (view)
 
 
-{-| main
+{-|
 -}
 main : Program String Model Update.Msg
 main =
