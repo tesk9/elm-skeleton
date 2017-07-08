@@ -1,14 +1,16 @@
 module Styles
     exposing
         ( Classes(..)
-        , css
         , class
-        , id
         , classList
+        , css
+        , id
         )
 
 {-|
+
 @docs Classes, css, class, id, classList
+
 -}
 
 import Css exposing (..)
@@ -16,8 +18,7 @@ import Css.Namespace exposing (namespace)
 import Html.CssHelpers exposing (Namespace, withNamespace)
 
 
-{-|
--}
+{-| -}
 type Classes
     = Container
 
@@ -38,8 +39,7 @@ currentNamespace =
     withNamespace "{{NAMESPACE}}-"
 
 
-{-|
-The produced stylesheet.
+{-| The produced stylesheet.
 -}
 css : String
 css =

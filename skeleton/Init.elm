@@ -1,7 +1,9 @@
 module Init exposing (init)
 
 {-|
+
 @docs init
+
 -}
 
 import Flags exposing (Flags)

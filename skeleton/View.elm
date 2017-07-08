@@ -1,7 +1,9 @@
 module View exposing (view)
 
 {-|
+
 @docs view
+
 -}
 
 import Html exposing (..)
@@ -13,8 +15,7 @@ import Styles exposing (..)
 import Update exposing (Msg(..))
 
 
-{-|
--}
+{-| -}
 view : Model -> Html Msg
 view model =
     div
