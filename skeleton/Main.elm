@@ -25,7 +25,7 @@ main =
         }
 
 
-start : String -> ( Model, Cmd msg )
+start : String -> ( Model, Cmd Msg )
 start pageData =
     case decodeString decoder pageData of
         Ok flags ->
