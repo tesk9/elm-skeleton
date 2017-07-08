@@ -24,6 +24,7 @@ module Main
 
 -}
 
+import Css
 import Flags as Flags
 import Html exposing (Html)
 import Init as Init
@@ -74,6 +75,6 @@ view =
 
 
 {-| -}
-styles : String
+styles : Css.Stylesheet
 styles =
     Styles.styles

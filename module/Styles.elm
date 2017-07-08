@@ -40,11 +40,8 @@ currentNamespace =
 
 {-| The produced stylesheet.
 -}
-styles : String
+styles : Stylesheet
 styles =
     snippets
         |> namespace currentNamespace.name
         |> stylesheet
-        |> (\x -> [ x ])
-        |> compile
-        |> .css
