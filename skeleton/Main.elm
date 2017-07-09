@@ -1,20 +1,21 @@
 module Main exposing (main)
 
 {-|
+
 @docs main
+
 -}
 
-import Html
-import Json.Decode exposing (Value, decodeString)
 import Flags exposing (decoder)
+import Html
 import Init exposing (init)
+import Json.Decode exposing (Value, decodeString)
 import Model exposing (Model)
 import Update exposing (update)
 import View exposing (view)
 
 
-{-|
--}
+{-| -}
 main : Program String Model Update.Msg
 main =
     Html.programWithFlags
@@ -25,7 +26,7 @@ main =
         }
 
 
-start : String -> ( Model, Cmd msg )
+start : String -> ( Model, Cmd Msg )
 start pageData =
     case decodeString decoder pageData of
         Ok flags ->
