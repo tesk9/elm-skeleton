@@ -23,19 +23,13 @@ function createNewFeature(destination) {
 
     // Process the module
     var elmPackagePath = path.join(tempDirectory, "elm-package.json");
-    var stylesPath = path.join(tempDirectory, "Styles.elm")
-    var namespaceStyles = helpers.replaceStyleNamespace(destination);
 
     fs.remove(elmPackagePath, function(err) {
       if (err) { throw err; }
 
-      // Replace the namespacing in the Style module
-      helpers.fsReplace(stylesPath, namespaceStyles, function() {
-
-        // Move the module to final destination
-        console.log("Moving processed module to destination.");
-        moveProject(tempDirectory, destination);
-      });
+      // Move the module to final destination
+      console.log("Moving processed module to destination.");
+      moveProject(tempDirectory, destination);
     });
   });
 }

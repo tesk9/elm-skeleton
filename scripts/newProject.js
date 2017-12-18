@@ -24,14 +24,9 @@ function createNewProject(destination) {
     if (err) { throw err; }
     console.log("Skeleton copied to temporary directory for processing.");
 
-    // Process the skeleton
-    var stylesPath = path.join(tempSrcDirectory, "Styles.elm");
-    helpers.fsReplace(stylesPath, helpers.replaceStyleNamespace(destination), function() {
-
-      // Move the skeleton to final destination
-      console.log("Moving processed skeleton to destination.");
-      moveProject(tempSrcDirectory, srcDestination);
-    });
+    // Move the skeleton to final destination
+    console.log("Moving processed skeleton to destination.");
+    moveProject(tempSrcDirectory, srcDestination);
   });
 }
 

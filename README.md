@@ -4,11 +4,7 @@
 
 Set up a new Elm project or add a feature to an existing project.
 
-Creates files for Main, Flags, Model, Styles, Update, and View at the location of your choice.
-
 The skeleton produced will be set up to be used as a `programWithFlags`, so will not work with elm-reactor.
-
-It also assumes that the user will be using [rtfeldman's elm-css](http://package.elm-lang.org/packages/rtfeldman/elm-css/latest), and will start a stylesheet with a single container class. This container class will be namespaced to match the path passed to elm-skeleton initially.
 
 ### Install:
 
