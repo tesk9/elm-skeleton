@@ -5,7 +5,6 @@ module Main
         , Msg
         , decoder
         , init
-        , styles
         , update
         , view
         )
@@ -20,61 +19,64 @@ module Main
 
 @docs view
 
-@docs styles
-
 -}
 
-import Css
-import Flags as Flags
-import Html exposing (Html)
-import Init as Init
-import Json.Decode
-import Model as Model
-import Styles as Styles
-import Update as Update
-import View as View
+import Accessibility exposing (..)
+import Json.Decode exposing (..)
+import Json.Decode.Pipeline exposing (..)
 
 
-{-| -}
+-- FLAGS
+
+
 type alias Flags =
-    Flags.Flags
+    {}
 
 
-{-| -}
-decoder : Json.Decode.Decoder Flags.Flags
+decoder : Decoder Flags
 decoder =
-    Flags.decoder
+    decode Flags
 
 
-{-| -}
+
+-- INIT
+
+
 init : Flags -> Model
-init =
-    Init.init
+init flags =
+    {}
 
 
-{-| -}
+
+-- MODEL
+
+
 type alias Model =
-    Model.Model
+    {}
 
 
-{-| -}
-type alias Msg =
-    Update.Msg
+
+-- VIEW
 
 
-{-| -}
-update : Msg -> Model -> ( Model, Cmd Msg )
-update =
-    Update.update
-
-
-{-| -}
 view : Model -> Html Msg
-view =
-    View.view
+view model =
+    div
+        []
+        [ text "Hello, world!"
+        ]
 
 
-{-| -}
-styles : Css.Stylesheet
-styles =
-    Styles.styles
+
+-- UPDATE
+
+
+type Msg
+    = NoOp
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case msg of
+        NoOp ->
+            model ! []
