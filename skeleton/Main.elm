@@ -1,41 +1,97 @@
 module Main exposing (main)
 
-{-|
-
-@docs main
-
--}
-
-import Flags exposing (decoder)
-import Html
-import Init exposing (init)
-import Json.Decode exposing (Value, decodeString)
-import Model exposing (Model)
-import Update exposing (update)
-import View exposing (view)
+import Accessibility exposing (..)
+import Json.Decode exposing (..)
+import Json.Decode.Pipeline exposing (..)
 
 
 {-| -}
-main : Program String Model Update.Msg
+main : Program Value Model Msg
 main =
-    Html.programWithFlags
-        { init = start
+    programWithFlags
+        { init = init
         , update = update
         , subscriptions = subscriptions
         , view = view
         }
 
 
-start : String -> ( Model, Cmd Msg )
-start pageData =
-    case decodeString decoder pageData of
+
+-- FLAGS
+
+
+type alias Flags =
+    {}
+
+
+decoder : Decoder Flags
+decoder =
+    decode Flags
+
+
+
+-- INIT
+
+
+init : Value -> ( Model, Cmd Msg )
+init pageData =
+    case decodeValue decoder pageData of
         Ok flags ->
-            init flags ! []
+            ( Ok {}, Cmd.none )
 
         Err err ->
-            Debug.crash err
+            ( Err err, Cmd.none )
 
 
-subscriptions : a -> Sub b
+
+-- MODEL
+
+
+type alias Model =
+    Result String {}
+
+
+
+-- VIEW
+
+
+view : Model -> Html Msg
+view modelResult =
+    case modelResult of
+        Err err ->
+            text err
+
+        Ok model ->
+            div
+                []
+                [ text "Hello, world!"
+                ]
+
+
+
+-- UPDATE
+
+
+type Msg
+    = NoOp
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg modelResult =
+    case modelResult of
+        Err err ->
+            Err err ! []
+
+        Ok model ->
+            case msg of
+                NoOp ->
+                    Ok model ! []
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
 subscriptions =
     always Sub.none
