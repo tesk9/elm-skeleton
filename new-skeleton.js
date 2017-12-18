@@ -27,9 +27,10 @@ function YorN (prompt, yes, no) {
   process.stdin.setEncoding('utf8');
   console.log(prompt);
   var listener = function (text) {
+    const choice = text.toLowerCase();
     process.stdin.removeAllListeners('data');
     process.stdin.pause();
-    if (text == 'y\n') { yes(); }
+    if (choice == 'y\n') { yes(); }
     else { no(); }
   }
   process.stdin.on('data', listener);
