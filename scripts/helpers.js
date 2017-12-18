@@ -26,13 +26,7 @@ function fsReplace(path, mapContents, callback) {
   });
 }
 
-function replaceStyleNamespace(destination) {
-  var newNamespace = destination.replace("/", "-");
-  return function(file) { return file.replace("{{NAMESPACE}}", newNamespace); };
-}
-
 module.exports = {
   addFolder: addFolder,
   fsReplace: fsReplace,
-  replaceStyleNamespace: replaceStyleNamespace,
 }
